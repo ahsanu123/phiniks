@@ -1,5 +1,5 @@
 [package]
-name = "simple_migrator"
+name = "phiniks"
 version = "0.1.0"
 edition = "2024"
 
@@ -15,5 +15,5 @@ rsfbclient = { version = "0.26.0", features = [
 ] }
 serde = { version = "1.0.228", feature = ["derive"] }
 
-simple_migrator_macro = { path = "./sm_macro" }
+phiniks_macro = { path = "./macro" }
 log = { version = "0.4.29", features = ["serde", "std"] }

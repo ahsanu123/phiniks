@@ -10,8 +10,6 @@ pub mod platforms;
 pub mod runner;
 pub mod runner_builder;
 
-pub(crate) mod clap_args;
-
 pub static DATABASE_CONNECTION: OnceCell<Mutex<SimpleConnection>> = OnceCell::new();
 
 // TODO: make it generic

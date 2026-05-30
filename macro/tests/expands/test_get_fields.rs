@@ -1,4 +1,4 @@
-use simple_migrator_macro::{FromRow, GetFields};
+use phiniks_macro::{FromRow, GetFields};
 
 #[derive(GetFields, FromRow)]
 pub struct MigrationStatus {

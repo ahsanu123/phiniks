@@ -2,14 +2,14 @@ use anyhow::anyhow;
 use anyhow::{Ok, Result};
 use chrono::NaiveDateTime;
 use once_cell::sync::OnceCell;
+use phiniks::get_db_conn;
+use phiniks::models::MigrationStatus;
+use phiniks::platforms::firebirdsql::FirebirdDbExecutor;
+use phiniks::runner::RunnerTrait;
+use phiniks::{migrations::MigrationTrait, runner_builder::RunnerBuilder};
 use rsfbclient::Row;
 use rsfbclient::SimpleConnection;
 use rsfbclient::{Execute, Queryable};
-use simple_migrator::get_db_conn;
-use simple_migrator::models::MigrationStatus;
-use simple_migrator::platforms::firebirdsql::FirebirdDbExecutor;
-use simple_migrator::runner::RunnerTrait;
-use simple_migrator::{migrations::MigrationTrait, runner_builder::RunnerBuilder};
 use std::env;
 use std::sync::Mutex;
 
@@ -104,7 +104,7 @@ impl MigrationTrait for Migration1 {
             .lock()
             .map_err(|_| anyhow!("fail to lock connection"))?;
 
-        conn.execute(include_str!("../../sqls/0_create_price_table.sql"), ())?;
+        conn.execute(include_str!("../sqls/0_create_price_table.sql"), ())?;
         Ok(())
     }
 
@@ -147,7 +147,7 @@ impl MigrationTrait for Migration2 {
             .lock()
             .map_err(|_| anyhow!("fail to lock connection"))?;
 
-        conn.execute(include_str!("../../sqls/1_create_user_table.sql"), ())?;
+        conn.execute(include_str!("../sqls/1_create_user_table.sql"), ())?;
         Ok(())
     }
 

@@ -1,5 +1,5 @@
+use phiniks_macro::{FromRow, GetFields};
 use rsfbclient::prelude::IntoParams;
-use simple_migrator_macro::{FromRow, GetFields};
 
 #[derive(Default, GetFields, FromRow, Debug, IntoParams)]
 pub struct MigrationStatus {
